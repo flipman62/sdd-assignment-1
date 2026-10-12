@@ -114,10 +114,33 @@ Run the provided contract checker before submission:
 ./container/run.sh .
 ```
 
-Paste the successful checker output here before submitting:
+The checker uses a portable temporary-file template so it works on this Linux environment. The successful output is:
 
 ```text
-TODO: paste the output of ./container/run.sh . here
+=== SDD Assignment 1 contract check ===
+Repository: /home/flipman/Documents/Class_Projects/Devops/sdd-assignment-1
+
+==> Repository shape
+    PASS  one Dockerfile, one manifest (requirements.txt)
+
+==> Build from a clean context, no build args
+    PASS  image built
+    PASS  image size 52 MB
+
+==> Start on PORT=8000 and reach it from the host
+    PASS  HTTP 200 from http://localhost:8000/
+
+==> SQLite file under DATA_DIR
+    PASS  found in /data: habits.sqlite3
+
+==> Data persists, and a second boot does not re-seed
+    PASS  volume at /data persists
+    PASS  row counts unchanged across restart: completions=0 habits=0
+
+==> PORT override is honoured (not hardcoded)
+    PASS  HTTP 200 from http://localhost:9123/
+
+=== ALL CHECKS PASSED ===
 ```
 
 ## SDLC and SMART Goals

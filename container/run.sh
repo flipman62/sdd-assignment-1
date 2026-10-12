@@ -146,7 +146,7 @@ for (t,) in rows:
 PY
 }
 
-TMPDB="$(mktemp -t sdd-check).db"
+TMPDB="$(mktemp -t sdd-check.XXXXXX).db"
 step "Data persists, and a second boot does not re-seed"
 before="$(db_counts || true)"
 docker exec "$NAME" sh -c 'echo marker > /data/.sdd-check' 2>/dev/null || true
